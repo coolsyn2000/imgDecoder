@@ -1,0 +1,25 @@
+#pragma once
+const int SOI_MARKER = 0xD8;
+const int APP0_MARKER = 0xE0;
+const int APP1_MARKER = 0xE1;
+const int DQT_MARKER = 0xDB;
+const int SOF0_MARKER = 0xC0;
+const int SOF2_MARKER = 0xC2;
+const int DHT_MARKER = 0xC4;
+const int SOS_MARKER = 0xDA;
+const int EOI_MARKER = 0xD9;
+const int COM_MARKER = 0xFE;
+const int DRI_MARKER = 0xDD;
+const int RST1_MARKER = 0xD1;
+const int RST2_MARKER = 0xD2;
+const int RST3_MARKER = 0xD3;
+const int RST4_MARKER = 0xD4;
+const int RST5_MARKER = 0xD5;
+const int RST6_MARKER = 0xD6;
+const int RST7_MARKER = 0xD7;
+void Jpeg_Hexdecode(const char* infilename);
+void showSectionHeader(const char* s);
+void ParseDHT(unsigned char*& buf);
+std::pair<unsigned char, unsigned int>* createHuffCode(unsigned char* a, unsigned int number);
+unsigned int getSectionLength(unsigned char*& buf);
+void init_cos_cache();
