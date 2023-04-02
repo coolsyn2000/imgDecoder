@@ -5,10 +5,17 @@
 #include "myJPEG.h"
 
 using namespace std;
-int main()
+int main(int argc, const char *argv[])
 {
-    Jpeg_Hexdecode("./test.jpg");
-    //cout << argv[1];
+    //default filepath
+    if (argc !=3)
+    {
+        argv[1] = "./test_sample/test.jpg";
+        argv[2] = "./test_sample/out.bmp";
+    }
+
+    Jpeg_Hexdecode(argv[1], argv[2]);
+    cout << argv[1]<<endl<<argv[2];
     return 0;
 }
 

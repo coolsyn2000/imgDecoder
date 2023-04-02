@@ -522,7 +522,7 @@ MCU readMCU(unsigned char*& buf)
     return mcu;
 }
 
-void ParseData(unsigned char* &buf)
+void ParseData(unsigned char* &buf, const char* outfilename)
 {
     showSectionHeader("ReadData");
     int w = (image.width - 1) / (8 * maxWidth) + 1;
@@ -549,10 +549,10 @@ void ParseData(unsigned char* &buf)
         }
     }
     cout<<"Ready to output file\n";
-    BMP_WriteFile(bmp, "out.bmp");
+    BMP_WriteFile(bmp, outfilename);
 }
 
-void Jpeg_Hexdecode(const char* infilename)
+void Jpeg_Hexdecode(const char* infilename, const char* outfilename)
 {
     
     init_cos_cache();
@@ -638,7 +638,7 @@ void Jpeg_Hexdecode(const char* infilename)
             case SOS_MARKER:
                 //cout << "Start Of Scan\n";
                 ParseSOS(buf_pointer);
-                ParseData(buf_pointer);
+                ParseData(buf_pointer, outfilename);
                 goto label;
                 //readData(f);
                 break;

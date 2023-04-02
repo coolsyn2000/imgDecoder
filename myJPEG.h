@@ -17,7 +17,7 @@ const int RST4_MARKER = 0xD4;
 const int RST5_MARKER = 0xD5;
 const int RST6_MARKER = 0xD6;
 const int RST7_MARKER = 0xD7;
-void Jpeg_Hexdecode(const char* infilename);
+void Jpeg_Hexdecode(const char* infilename, const char* outfilename);
 void showSectionHeader(const char* s);
 void ParseDHT(unsigned char*& buf);
 std::pair<unsigned char, unsigned int>* createHuffCode(unsigned char* a, unsigned int number);
